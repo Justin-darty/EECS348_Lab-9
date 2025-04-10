@@ -3,13 +3,14 @@
 
 #include <cstdint>
 #include <vector>
+#include <iostream>
 
-// all of your function definitions should be in this file now
-
+// Matrix class declaration
 class Matrix {
 public:
     Matrix(std::size_t N);
     Matrix(std::vector<std::vector<int>> nums);
+    Matrix(std::vector<std::vector<double>> nums);  // For double matrix
 
     Matrix operator+(const Matrix &rhs) const;
     Matrix operator*(const Matrix &rhs) const;
@@ -21,6 +22,12 @@ public:
     void swap_rows(std::size_t r1, std::size_t r2);
     void swap_cols(std::size_t c1, std::size_t c2);
     void print_matrix() const;
+
+private:
+    std::size_t size;
+    std::vector<std::vector<int>> matrix_int;
+    std::vector<std::vector<double>> matrix_double;
+    bool is_double;
 };
 
 #endif // __MATRIX_HPP__
